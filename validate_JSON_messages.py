@@ -8,6 +8,7 @@ def validate_date_period(msgtime):
         date = datetime.datetime.strptime(msgtime[:10], '%Y-%m-%d')
     except ValueError:
         raise jsonschema.exceptions.ValidationError("Incorrect date format")
+        
     today = datetime.datetime.now()
     delta = today - date
     if delta.days > 7 :
