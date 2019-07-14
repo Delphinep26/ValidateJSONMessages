@@ -1,0 +1,3 @@
+the message should not be older than 7 days : [{'transmitter': 'abc:123', 'msg_time': '2019-03-15:37.951Z', 'msg_type': 84, 'message': 'Hello world'}]
+80 is not one of [83, 84, 0] : [{'transmitter': 'abc:12345', 'msg_time': '2019-03-15T10:26:37.951Z', 'msg_type': 80, 'message': 'Hello world'}]
+8 is not of type 'string' : [{'transmitter': 'abc:12345', 'msg_time': '2018-03-15T10:26:37.951Z', 'msg_type': 84, 'message': 8}, {'transmitter': 'abc:12345', 'msg_time': '2019-03-15T10:26:37.951Z', 'msg_type': 84, 'message': 8}]
