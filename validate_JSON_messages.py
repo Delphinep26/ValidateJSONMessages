@@ -36,6 +36,8 @@ def write_data_to_file(data,filename):
 
 def main():
 
+    file_name = input("Please enter filename: ")
+
     #init
     validated_messages = {}
     not_validated_messages = {}
@@ -49,23 +51,26 @@ def main():
                }
               }
     #Open and read file
-    with open('input') as json_file:
-        data = json_file.read()
-        new_data = data.replace('}{', '},{')
-        list_message = list(json.loads(f'[{new_data}]'))
-        #Validate and save data in the correspond list
-        for message in list_message:
-            try:
-                validate_data(message,schema)
-                data_key = message['msg_type']
-                update_output_data(validated_messages, data_key, message)
+    try :
+        with open(file_name) as json_file:
+            data = json_file.read()
+            new_data = data.replace('}{', '},{')
+            list_message = list(json.loads(f'[{new_data}]'))
+            #Validate and save data in the correspond list
+            for message in list_message:
+                try:
+                    validate_data(message,schema)
+                    data_key = message['msg_type']
+                    update_output_data(validated_messages, data_key, message)
 
-            except jsonschema.exceptions.ValidationError as e:
-                data_key = e.message
-                update_output_data(not_validated_messages,data_key, message)
-    #Write result to file
-    write_data_to_file(validated_messages,'output_valid.txt')
-    write_data_to_file(not_validated_messages, 'output_not_valid.txt')
+                except jsonschema.exceptions.ValidationError as e:
+                    data_key = e.message
+                    update_output_data(not_validated_messages,data_key, message)
+        #Write result to file
+        write_data_to_file(validated_messages,'output_valid.txt')
+        write_data_to_file(not_validated_messages, 'output_not_valid.txt')
+    except FileNotFoundError as e :
+        print("File not found")
 
 
 if __name__ == '__main__':

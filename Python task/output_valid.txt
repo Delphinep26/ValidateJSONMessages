@@ -1,1 +1,0 @@
-84 : [{'transmitter': 'abc:123', 'msg_time': '2019-03-15:37.951Z', 'msg_type': 84, 'message': 'Hello world'}]
