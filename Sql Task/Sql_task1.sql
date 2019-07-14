@@ -7,7 +7,7 @@ FROM (
 		SELECT id,ROW_NUMBER() OVER(order by id ) as row_num ,type,LAG(type) OVER(order by id ) as prev_type , msg ,LAG(msg) over(order by id) as prev_msg  
 		FROM 
 		(
-				SELECT * ---id ,type , msg 
+				SELECT id ,type , msg 
 				FROM 
 		        (
 					SELECT min(ID) as start_bulk  , max(ID) as  end_bulk
