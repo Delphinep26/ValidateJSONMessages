@@ -19,3 +19,9 @@ Please write a python code that goes over all the messages in the list, and does
 4. Msg type is one of the following (0000,83,84)
 5. Messages that pass all validations should be placed in a corresponding list (list per type)
 6. Messages that do not pass the validation (or fail for any reason) should be placed in a separate list with the failure reason (text)
+  
+ Run Solution :
+ 1. Install requirements.txt
+ 2. Run validate_JSON_messages.py
+ 3. Enter filename and ENTER
+ 4. The 2 outpout files will be created in the current folder
