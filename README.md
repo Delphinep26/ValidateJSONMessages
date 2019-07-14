@@ -1,4 +1,4 @@
-# ValidateJSONMessages
+# Validate JSON Messages task
 
 You have a list containing incoming messages.
 
