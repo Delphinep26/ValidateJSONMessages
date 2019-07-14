@@ -4,7 +4,7 @@
 		WHEN type = 83 and prev_type = 84 THEN MSG
 	END AS MSG
 FROM (
-		SELECT id,type , ROW_NUMBER() OVER(order by id ) as row_num ,LAG(type) OVER(order by id ) as prev_type , msg ,LAG(msg) over(order by id) as prev_msg  
+		SELECT id,ROW_NUMBER() OVER(order by id ) as row_num ,type,LAG(type) OVER(order by id ) as prev_type , msg ,LAG(msg) over(order by id) as prev_msg  
 		FROM 
 		(
 				SELECT * ---id ,type , msg 
