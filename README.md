@@ -23,5 +23,5 @@ Please write a python code that goes over all the messages in the list, and does
  Run Solution :
  1. Install requirements.txt
  2. Run validate_JSON_messages.py
- 3. Enter filename and ENTER
+ 3. Enter filename and press ENTER
  4. The 2 outpout files will be created in the current folder
