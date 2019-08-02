@@ -1,9 +1,5 @@
-SELECT name,
-	   telephone,
-	   address,
-	   town,
-	   department,
-	   IIF((manufacture Is Null),'',CONCAT(trim(manufacture),',',trim(model),',')) AS device
+SELECT name,telephone,address,town,department,
+	   IIF((manufacture IS NOT NULL),CONCAT(trim(manufacture),',',trim(model),','),'') AS device
      
 FROM TBL_Employees 
 LEFT JOIN TBL_Devices
