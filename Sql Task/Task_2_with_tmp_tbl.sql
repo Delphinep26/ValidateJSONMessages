@@ -12,15 +12,16 @@ INTO first_bulk_tmp
 	  ) m
 WHERE num_0s = 1 
 
-
-IF EXISTS(SELECT 1 FROM first_bulk_tmp WHERE row_num != id) 
-BEGIN
-   PRINT 'Missing ID in the first bulk' 
-END
-ELSE
+IF NOT EXISTS(SELECT 1 FROM first_bulk_tmp WHERE row_num != id) 
 BEGIN
     SELECT 
 	REPLACE(CONCAT(msg, CASE WHEN next_type = 84 THEN next_msg ELSE '' END),' ','') 
-		FROM first_bulk_tmp
-		WHERE TYPE = 83
+	FROM first_bulk_tmp
+	WHERE TYPE = 83
 END
+ELSE
+BEGIN
+   PRINT 'Missing ID in the first bulk' 
+END
+
+
